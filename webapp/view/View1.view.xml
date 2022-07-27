@@ -1,0 +1,114 @@
+<mvc:View controllerName="it.orogel.depositbooklet.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <OverflowToolbar>
+                <!-- Interest Rate Table Button -->
+                <Button id="interestButton" type="Success" icon="sap-icon://table-view" text="{i18n>lbl.Interest}" tooltip="{i18n>lbl.InterestButton}" press="onOpenInterestRateDialog"/>
+                <ToolbarSpacer/>
+                <!-- Company Code -->
+                <Input id="companyCode" placeholder="{i18n>lbl.CompanyCode}" required="true" width="auto"/>
+                <!-- Supplier Code -->
+                <Input id="supplierCode" placeholder="{i18n>lbl.SupplierCodeF}" required="true" width="auto"/>
+                <!-- Date Range -->
+                <DateRangeSelection id="dateRangeSelection" placeholder="{i18n>lbl.DateRangeSelection}" delimiter="-" displayFormat="dd/MM/yyyy" valueFormat="MM/dd/yyyy" dateValue="{viewModel>/startDateFilter}" secondDateValue="{viewModel>/endDateFilter}" minDate="{viewModel>/dateFilterMin}" maxDate="{viewModel>/dateFilterMax}" change="onFilterRangeDate" required="true" width="auto"/>
+                <!-- Go Button -->
+                <Button id="goButton" type="Emphasized" icon="sap-icon://search" tooltip="{i18n>lbl.GoButton}" press="onGo"/>
+                <!-- Reset Button -->
+                <Button id="resetButton" type="Emphasized" icon="sap-icon://reset" tooltip="{i18n>lbl.ResetButton}" press="onReset"/>
+                <!-- Export Button -->
+                <Button id="exportButton" type="Emphasized" icon="sap-icon://pdf-attachment" tooltip="{i18n>lbl.ExportButton}" press="onExport"/>
+            </OverflowToolbar>
+            <t:Table id="table" rows="{viewModel>/items}" selectionMode="Multi" visibleRowCountMode="Auto" alternateRowColors="true">
+                <t:columns>
+                    <!--1 Company Code  -->
+                    <t:Column id="column1Id" sortProperty="CompanyCode" filterProperty="CompanyCode" width="auto">
+                        <Label text="{i18n>lbl.CompanyCode}" tooltip="{i18n>lbl.CompanyCode}"/>
+                        <t:template>
+                            <Text text="{CompanyCode}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--2 Company Name  -->
+                    <t:Column sortProperty="CompanyName" filterProperty="CompanyName" width="auto">
+                        <Label text="{i18n>lbl.CompanyName}" tooltip="{i18n>lbl.CompanyName}"/>
+                        <t:template>
+                            <Text text="{CompanyName}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--3 Supplier Code  -->
+                    <t:Column sortProperty="SupplierCode" filterProperty="SupplierCode" width="auto">
+                        <Label text="{i18n>lbl.SupplierCode}" tooltip="{i18n>lbl.SupplierCode}"/>
+                        <t:template>
+                            <Text text="{SupplierCode}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--4 Supplier Name  -->
+                    <t:Column sortProperty="SupplierName" filterProperty="SupplierName" width="auto">
+                        <Label text="{i18n>lbl.SupplierName}" tooltip="{i18n>lbl.SupplierName}"/>
+                        <t:template>
+                            <Text text="{SupplierName}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--5 Document Date  -->
+                    <t:Column sortProperty="DocumentDate" filterProperty="DocumentDate" width="auto">
+                        <Label text="{i18n>lbl.DocumentDate}" tooltip="{i18n>lbl.DocumentDate}"/>
+                        <t:template>
+                            <Text text="{DocumentDate}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--6 Movement Amount  -->
+                    <t:Column sortProperty="MovementAmount" filterProperty="MovementAmount" width="auto">
+                        <Label text="{i18n>lbl.MovementAmount}" tooltip="{i18n>lbl.MovementAmount}"/>
+                        <t:template>
+                            <Text text="{MovementAmount}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--7 Deposit  -->
+                    <t:Column sortProperty="Deposit" filterProperty="Deposit" width="auto">
+                        <Label text="{i18n>lbl.Deposit}" tooltip="{i18n>lbl.Deposit}"/>
+                        <t:template>
+                            <Text text="{Deposit}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--8 Interest Rate  -->
+                    <t:Column sortProperty="InterestRate" filterProperty="InterestRate" width="auto">
+                        <Label text="{i18n>lbl.InterestRate}" tooltip="{i18n>lbl.InterestRate}"/>
+                        <t:template>
+                            <Text text="{InterestRate}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--9 Number of days  -->
+                    <t:Column sortProperty="NumberOfDays" filterProperty="NumberOfDays" width="auto">
+                        <Label text="{i18n>lbl.NumberOfDays}" tooltip="{i18n>lbl.NumberOfDays}"/>
+                        <t:template>
+                            <Text text="{NumberOfDays}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--10 Gross Interest  -->
+                    <t:Column sortProperty="GrossInterest" filterProperty="GrossInterest" width="auto">
+                        <Label text="{i18n>lbl.GrossInterest}" tooltip="{i18n>lbl.GrossInterest}"/>
+                        <t:template>
+                            <Text text="{GrossInterest}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--11 Withholding  -->
+                    <t:Column sortProperty="Withholding" filterProperty="Withholding" width="auto">
+                        <Label text="{i18n>lbl.Withholding}" tooltip="{i18n>lbl.Withholding}"/>
+                        <t:template>
+                            <Text text="{Withholding}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <!--12 Net Interest  -->
+                    <t:Column sortProperty="NetInterest" filterProperty="NetInterest" width="auto">
+                        <Label text="{i18n>lbl.NetInterest}" tooltip="{i18n>lbl.NetInterest}"/>
+                        <t:template>
+                            <Text text="{NetInterest}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </content>
+    </Page>
+</mvc:View>

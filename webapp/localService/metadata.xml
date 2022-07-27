@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://orogeldev:44333/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='FIORI_MENU')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="API_OPLACCTGDOCITEMCUBE_SRV" xml:lang="it" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="A_OperationalAcctgDocItemCubeType" sap:label="Posizione del documento di contabilità operativa" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CompanyCode"/>
+                    <PropertyRef Name="FiscalYear"/>
+                    <PropertyRef Name="AccountingDocument"/>
+                    <PropertyRef Name="AccountingDocumentItem"/>
+                </Key>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Società"/>
+                <Property Name="FiscalYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Esercizio"/>
+                <Property Name="AccountingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento contabile"/>
+                <Property Name="AccountingDocumentItem" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="NonNegative" sap:label="Pos. view registr." sap:quickinfo="Posizione view di registrazione documento contabile"/>
+                <Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Nome società"/>
+                <Property Name="ChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Piano dei conti"/>
+                <Property Name="AccountingDocumentItemType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="ID riga contabile" sap:quickinfo="Identificazione della riga contabile"/>
+                <Property Name="ClearingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data di pareggio"/>
+                <Property Name="ClearingCreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data cr. pareggio" sap:quickinfo="Data di creazione pareggio"/>
+                <Property Name="ClearingAccountingDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Doc. cont. pareggio" sap:quickinfo="Documento contabile di pareggio"/>
+                <Property Name="IsCleared" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Viene pareggiato" sap:quickinfo="Stato di pareggio: viene pareggiato"/>
+                <Property Name="PostingKey" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Chiave contabile"/>
+                <Property Name="FinancialAccountType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tipo di conto"/>
+                <Property Name="SpecialGLCode" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Co.Ge. speciale" sap:quickinfo="Codice Co.Ge. speciale"/>
+                <Property Name="SpecialGLTransactionType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Cl. oper. Co.Ge. sp." sap:quickinfo="Classe operazione Co.Ge. speciale"/>
+                <Property Name="DebitCreditCode" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Codice dare/avere"/>
+                <Property Name="BusinessArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Settore contabile"/>
+                <Property Name="BusinessAreaName" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nome settore cont." sap:quickinfo="Nome del settore contabile"/>
+                <Property Name="PartnerBusinessArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sett. cont. partner" sap:quickinfo="Settore contabile partner"/>
+                <Property Name="TaxCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Codice IVA"/>
+                <Property Name="WithholdingTaxCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Cd. ritenuta acconto" sap:quickinfo="Codice ritenuta d'acconto"/>
+                <Property Name="TaxType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tipo di imposta" sap:quickinfo="Tipo imp."/>
+                <Property Name="TransactionTypeDetermination" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Chiave transazione"/>
+                <Property Name="ValueDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data valuta"/>
+                <Property Name="AssignmentReference" Type="Edm.String" MaxLength="18" sap:label="Attribuzione"/>
+                <Property Name="DocumentItemText" Type="Edm.String" MaxLength="50" sap:label="Testo posizione"/>
+                <Property Name="PartnerCompany" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Società partner" sap:quickinfo="ID società della società partner"/>
+                <Property Name="FinancialTransactionType" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Tipo di op. finanz." sap:quickinfo="Tipo di operazione finanziaria"/>
+                <Property Name="CorporateGroupAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Conto gruppo"/>
+                <Property Name="PlanningLevel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Liv. cash management" sap:quickinfo="Livello cash management e forecast"/>
+                <Property Name="ControllingArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Controlling area"/>
+                <Property Name="ControllingAreaName" Type="Edm.String" MaxLength="25" sap:label="Nome area CO" sap:quickinfo="Nome controlling area"/>
+                <Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Centro di costo"/>
+                <Property Name="CostCenterName" Type="Edm.String" MaxLength="20" sap:label="Nome centro di costo" sap:quickinfo="Nome del centro di costo"/>
+                <Property Name="Project" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="Progetto"/>
+                <Property Name="OrderID" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="ID ordine"/>
+                <Property Name="BillingDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="DocFatt"/>
+                <Property Name="SalesDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Doc. vendita"/>
+                <Property Name="SalesDocumentItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Posizione del documento commerciale"/>
+                <Property Name="ScheduleLine" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Schedulazione"/>
+                <Property Name="MasterFixedAsset" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Cespite"/>
+                <Property Name="FixedAsset" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="N. sec. cespite" sap:quickinfo="Numero secondario del cespite"/>
+                <Property Name="AssetTransactionType" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Tipo mov. cespite" sap:quickinfo="Tipo di movimento cespite"/>
+                <Property Name="AssetValueDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data di riferimento"/>
+                <Property Name="PersonnelNumber" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="C.I.D."/>
+                <Property Name="IsSalesRelated" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="È valido per il fatturato"/>
+                <Property Name="LineItemDisplayIsEnabled" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Partite singole" sap:quickinfo="Indicatore: vis. partite singole possibile tramite conto?"/>
+                <Property Name="IsOpenItemManaged" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Sogg. gest. part.ap." sap:quickinfo="Sogg. a gestione partite aperte"/>
+                <Property Name="IsNotCashDiscountLiable" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Non è soggetto a sconto"/>
+                <Property Name="IsAutomaticallyCreated" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Viene creato automaticamente"/>
+                <Property Name="IsUsedInPaymentTransaction" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="È utilizzato in operazione di pagamento"/>
+                <Property Name="OperationalGLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cto Co.Ge. operativo" sap:quickinfo="Conto Co.Ge. operativo"/>
+                <Property Name="GLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Conto Co.Ge."/>
+                <Property Name="GLAccountName" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nome conto Co.Ge."/>
+                <Property Name="GLAccountLongName" Type="Edm.String" MaxLength="50" sap:display-format="UpperCase" sap:label="Nome est. cto Co.Ge." sap:quickinfo="Nome esteso del conto Co.Ge."/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Codice cliente"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="80" sap:label="Nome del cliente"/>
+                <Property Name="Supplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fornitore"/>
+                <Property Name="SupplierName" Type="Edm.String" MaxLength="80" sap:label="Nome del fornitore"/>
+                <Property Name="BranchAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Conto filiale"/>
+                <Property Name="IsBalanceSheetAccount" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="È conto di bilancio"/>
+                <Property Name="ProfitLossAccountType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tipo di conto profitti e perdite"/>
+                <Property Name="SpecialGLAccountAssignment" Type="Edm.String" MaxLength="18" sap:label="Attr.Co.Ge. speciale" sap:quickinfo="Numero attribuzione per conti Co.Ge. speciali"/>
+                <Property Name="DueCalculationBaseDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data di scadenza base di calcolo"/>
+                <Property Name="PaymentTerms" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Condizioni di pag." sap:quickinfo="Chiave delle condizioni di pagamento"/>
+                <Property Name="CashDiscount1Days" Type="Edm.Decimal" Precision="3" Scale="0" sap:label="Giorni di sconto 1"/>
+                <Property Name="CashDiscount2Days" Type="Edm.Decimal" Precision="3" Scale="0" sap:label="Giorni di sconto 2"/>
+                <Property Name="NetPaymentDays" Type="Edm.Decimal" Precision="3" Scale="0" sap:label="Giorni netti" sap:quickinfo="Periodo condizioni di pagamento netto"/>
+                <Property Name="CashDiscount1Percent" Type="Edm.Decimal" Precision="5" Scale="3" sap:label="Perc. sconto 1" sap:quickinfo="Percentuale dello sconto 1"/>
+                <Property Name="CashDiscount2Percent" Type="Edm.Decimal" Precision="5" Scale="3" sap:label="Perc. sconto 2" sap:quickinfo="Percentuale dello sconto 2"/>
+                <Property Name="PaymentMethod" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Modalità pagamento" sap:quickinfo="Modalità di pagamento"/>
+                <Property Name="PaymentBlockingReason" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Motivo del blocco pagamento"/>
+                <Property Name="FixedCashDiscount" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Sconto fisso"/>
+                <Property Name="HouseBank" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Banca interna" sap:quickinfo="Chiave banca interna"/>
+                <Property Name="BPBankAccountInternalID" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Conto bancario BP" sap:quickinfo="ID interno conto bancario business partner"/>
+                <Property Name="TaxDistributionCode1" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Cd. IVA 1 distrib." sap:quickinfo="Codice IVA 1 per distribuzione"/>
+                <Property Name="TaxDistributionCode2" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Cd. IVA 2 distrib." sap:quickinfo="Codice IVA 2 per distribuzione"/>
+                <Property Name="TaxDistributionCode3" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Cd. IVA 3 distrib." sap:quickinfo="Codice IVA 3 per distribuzione"/>
+                <Property Name="InvoiceReference" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Riferimento fattura"/>
+                <Property Name="InvoiceReferenceFiscalYear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Rif. fatt. - eserc." sap:quickinfo="Riferimento fattura - esercizio"/>
+                <Property Name="InvoiceItemReference" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Rif. pos. fattura" sap:quickinfo="Riferimento posizione fattura"/>
+                <Property Name="FollowOnDocumentType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tp. doc. successivo" sap:quickinfo="Tipo di documento successivo"/>
+                <Property Name="StateCentralBankPaymentReason" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Codice banca centr." sap:quickinfo="Codice banca centrale"/>
+                <Property Name="SupplyingCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Paese fornitore"/>
+                <Property Name="InvoiceList" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Lista di fatture"/>
+                <Property Name="BillOfExchangeUsage" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Utilizzo effetto" sap:quickinfo="Tipo di utilizzo effetto"/>
+                <Property Name="DunningKey" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Chiave sollecito"/>
+                <Property Name="DunningBlockingReason" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Motivo del blocco sollecito"/>
+                <Property Name="LastDunningDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Ultimo sollecito" sap:quickinfo="Data dell'ultimo sollecito"/>
+                <Property Name="DunningLevel" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative" sap:label="Livello sollecito"/>
+                <Property Name="DunningArea" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Area di sollecito"/>
+                <Property Name="WithholdingTaxCertificate" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Certificazione RdA" sap:quickinfo="Certificazione ritenuta d'acconto"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Materiale" sap:quickinfo="Codice materiale"/>
+                <Property Name="Product" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Prodotto" sap:quickinfo="Codice prodotto"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Divisione"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento d'acquisto" sap:quickinfo="Documento di acquisto"/>
+                <Property Name="PurchasingDocumentItem" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative" sap:label="Pos. doc. d'acquisto" sap:quickinfo="Posizione del documento d'acquisto"/>
+                <Property Name="AccountAssignmentNumber" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="N. progr. contab." sap:quickinfo="N. progressivo della contabilizzazione"/>
+                <Property Name="IsCompletelyDelivered" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="È compl. consegnato" sap:quickinfo="È completamente consegnato"/>
+                <Property Name="MaterialPriceControl" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Controllo prezzo" sap:quickinfo="Indicatore controllo prezzo"/>
+                <Property Name="ValuationArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Area valorizzazione"/>
+                <Property Name="InventoryValuationType" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Tipo di valutazione"/>
+                <Property Name="VATRegistration" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Partita IVA"/>
+                <Property Name="DelivOfGoodsDestCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Paese destinazione" sap:quickinfo="Paese di destinazione per consegna merci"/>
+                <Property Name="PaymentDifferenceReason" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Motivo della differenza del pagamento"/>
+                <Property Name="ProfitCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Profit center"/>
+                <Property Name="ProfitCenterName" Type="Edm.String" MaxLength="20" sap:label="Nome centro profitto" sap:quickinfo="Descrizione del profit center"/>
+                <Property Name="JointVenture" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Joint Venture"/>
+                <Property Name="JointVentureCostRecoveryCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tipo di costo"/>
+                <Property Name="JointVentureEquityGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Gr. partecipazioni" sap:quickinfo="Gruppo di partecipazioni"/>
+                <Property Name="TreasuryContractType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tipo di contratto Treasury"/>
+                <Property Name="AssetContract" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="Contratto cespite"/>
+                <Property Name="CashFlowType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Tipo di movimento"/>
+                <Property Name="TaxJurisdiction" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Sede fiscale"/>
+                <Property Name="RealEstateObject" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Oggetto immobiliare" sap:quickinfo="Chiave interna per oggetto immobiliare"/>
+                <Property Name="SettlementReferenceDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data di riferimento" sap:quickinfo="Data di riferimento per la liquidazione"/>
+                <Property Name="CommitmentItem" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="Pos. finanziaria" sap:quickinfo="Posizione finanziaria"/>
+                <Property Name="CostObject" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Oggetto di costo"/>
+                <Property Name="ProjectNetwork" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Network" sap:quickinfo="Numero network per contabilizzazione"/>
+                <Property Name="OrderInternalBillOfOperations" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Distinta operazioni interna dell'ordine" sap:quickinfo="ID distinta delle operazioni interna dell'ordine"/>
+                <Property Name="OrderIntBillOfOperationsItem" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Pos. distinta oper. interna dell'ordine" sap:quickinfo="Posizione distinta delle operazioni interna dell'ordine"/>
+                <Property Name="WBSElementInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Elemento WBS" sap:quickinfo="Elemento WBS (numero interno senza conversione)"/>
+                <Property Name="ProfitabilitySegment" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="N. segm. profitt." sap:quickinfo="Numero per segm. profittab. (CO-PA)"/>
+                <Property Name="JointVentureEquityType" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Classe partecip." sap:quickinfo="Classe di partecipazione"/>
+                <Property Name="IsEUTriangularDeal" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="È commercio triangolare UE"/>
+                <Property Name="CostOriginGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Gruppo d'orig." sap:quickinfo="Gruppo d'origine quale suddivisione della VdC"/>
+                <Property Name="CompanyCodeCurrencyDetnMethod" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Met. det. div. soc." sap:quickinfo="Metodo di determinazione della divisa società"/>
+                <Property Name="ClearingIsReversed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Il pareggio viene stornato"/>
+                <Property Name="PaymentMethodSupplement" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Suppl. modal. pag." sap:quickinfo="Supplemento modalità di pagamento"/>
+                <Property Name="AlternativeGLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Conto Co.Ge. altern." sap:quickinfo="Numero di conto Co.Ge. alternativo nella società"/>
+                <Property Name="FundsCenter" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Centro di respons." sap:quickinfo="Centro di gestione fondi"/>
+                <Property Name="Fund" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fondi"/>
+                <Property Name="PartnerProfitCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Prof. cent. partner" sap:quickinfo="Profit center del partner"/>
+                <Property Name="Reference1IDByBusinessPartner" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="ID riferimento 1 per business partner" sap:quickinfo="ID del riferimento 1 per business partner"/>
+                <Property Name="Reference2IDByBusinessPartner" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="ID riferimento 2 per business partner" sap:quickinfo="ID del riferimento 2 per business partner"/>
+                <Property Name="IsNegativePosting" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="È reg. negativa" sap:quickinfo="È una registrazione negativa"/>
+                <Property Name="PaymentCardItem" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Posizione della carta di pagamento"/>
+                <Property Name="PaymentCardPaymentSettlement" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Liquidazione pag. con carta di pagamento" sap:quickinfo="Liquidazione di pagamento con carta di pagamento"/>
+                <Property Name="CreditControlArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Area ctr. credito" sap:quickinfo="Area di controllo credito"/>
+                <Property Name="Reference3IDByBusinessPartner" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="ID riferimento 3 per business partner" sap:quickinfo="ID del riferimento 3 per business partner"/>
+                <Property Name="DataExchangeInstruction1" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Scambio di dati - Istruzione 1"/>
+                <Property Name="DataExchangeInstruction2" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Scambio di dati - Istruzione 2"/>
+                <Property Name="DataExchangeInstruction3" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Scambio di dati - Istruzione 3"/>
+                <Property Name="DataExchangeInstruction4" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Scambio di dati - Istruzione 4"/>
+                <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Regione" sap:quickinfo="Regione (stato federale, stato federato, provincia, contea)"/>
+                <Property Name="HasPaymentOrder" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Pagamento inviato" sap:quickinfo="Indicatore: esiste ordine di pagamento per questa posizione"/>
+                <Property Name="PaymentReference" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Rif. pagamento" sap:quickinfo="Riferimento del pagamento"/>
+                <Property Name="TaxDeterminationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data det. aliq.fisc." sap:quickinfo="Data per determinazione delle aliquote fiscali"/>
+                <Property Name="ClearingItem" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Posizione pareggio" sap:quickinfo="Posizione di pareggio"/>
+                <Property Name="BusinessPlace" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sede commerciale"/>
+                <Property Name="TaxSection" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sezione imposta"/>
+                <Property Name="CostCtrActivityType" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Tipo di attività"/>
+                <Property Name="AccountsReceivableIsPledged" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Cont. forn. e clienti è pignorata" sap:quickinfo="La contabilità fornitori e clienti è pignorata"/>
+                <Property Name="BusinessProcess" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Business process"/>
+                <Property Name="GrantID" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Sovvenzione"/>
+                <Property Name="FunctionalArea" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Area funzionale"/>
+                <Property Name="FunctionalAreaName" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nome area funzionale" sap:quickinfo="Nome dell'area funzionale"/>
+                <Property Name="CustomerIsInExecution" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Il cliente è in esecuzione"/>
+                <Property Name="FundedProgram" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="Programma fondi"/>
+                <Property Name="ClearingDocFiscalYear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Esercizio pareggio" sap:quickinfo="Esercizio del documento contabile di pareggio"/>
+                <Property Name="LedgerGLLineItem" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Posizione doc. cont." sap:quickinfo="Posizione del documento contabile del ledger"/>
+                <Property Name="Segment" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Segmento" sap:quickinfo="Segmento per procedura di reporting segmento"/>
+                <Property Name="SegmentName" Type="Edm.String" MaxLength="50" sap:label="Nome segmento"/>
+                <Property Name="PartnerSegment" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Segmento partner" sap:quickinfo="Segmento partner per procedura di reporting segmento"/>
+                <Property Name="PartnerFunctionalArea" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Area funz. partner" sap:quickinfo="Area funzionale del partner"/>
+                <Property Name="HouseBankAccount" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Conto banca interna"/>
+                <Property Name="CostElement" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Voce di costo"/>
+                <Property Name="SEPAMandate" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Mandato SEPA" sap:quickinfo="Riferimento unico p. mandato SEPA per ogni benef. pagamento"/>
+                <Property Name="ReferenceDocumentType" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Tipo di doc. di rif." sap:quickinfo="Tipo documento di riferimento"/>
+                <Property Name="OriginalReferenceDocument" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Documento di riferimento originale"/>
+                <Property Name="ReferenceDocumentLogicalSystem" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sist. log. doc. rif." sap:quickinfo="Sistema logico del documento di riferimento"/>
+                <Property Name="AccountingDocumentItemRef" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Pos. doc. contabile" sap:quickinfo="Riferimento posizione del documento contabile"/>
+                <Property Name="FiscalPeriod" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Periodo contabile"/>
+                <Property Name="AccountingDocumentCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Cat. doc. contabile" sap:quickinfo="Categoria di documento contabile"/>
+                <Property Name="AccountingDocumentCategoryName" Type="Edm.String" MaxLength="60" sap:label="Nome categoria partita singola"/>
+                <Property Name="PostingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data registrazione" sap:quickinfo="Data di registrazione"/>
+                <Property Name="DocumentDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data doc. contabile" sap:quickinfo="Data del documento contabile"/>
+                <Property Name="AccountingDocumentType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tipo doc. contabile" sap:quickinfo="Tipo di documento contabile"/>
+                <Property Name="AccountingDocumentTypeName" Type="Edm.String" MaxLength="20" sap:label="Nome tipo doc. cont." sap:quickinfo="Nome del tipo di documento"/>
+                <Property Name="NetDueDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Scadenza netto" sap:quickinfo="Scadenza per pagamento netto"/>
+                <Property Name="CashDiscount1DueDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data scad. sconto 1" sap:quickinfo="Data di scadenza per sconto 1"/>
+                <Property Name="CashDiscount2DueDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data scad. sconto 2" sap:quickinfo="Data di scadenza per sconto 2"/>
+                <Property Name="OffsettingAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Conto contropartita" sap:quickinfo="Conto di contropartita"/>
+                <Property Name="OffsettingAccountType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tp.conto contr." sap:quickinfo="Tipo di conto di contropartita"/>
+                <Property Name="PartnerFund" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fondi partner"/>
+                <Property Name="PartnerGrant" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Finanziam. partner" sap:quickinfo="Finanziamento partner"/>
+                <Property Name="BudgetPeriod" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Periodo budget"/>
+                <Property Name="PartnerBudgetPeriod" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Partner per. budget" sap:quickinfo="GF: partner periodo budget"/>
+                <Property Name="BranchCode" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Branch Code"/>
+                <Property Name="CompanyCodeCurrency" Type="Edm.String" MaxLength="5" sap:label="Divisa società" sap:semantics="currency-code"/>
+                <Property Name="AmountInCompanyCodeCurrency" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="CompanyCodeCurrency" sap:label="Importo in div. soc." sap:quickinfo="Importo in divisa società"/>
+                <Property Name="TaxAmountInCoCodeCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="CompanyCodeCurrency" sap:label="Importo imposta in divisa società" sap:quickinfo="Importo imposta con segno in divisa società"/>
+                <Property Name="TaxBaseAmountInCoCodeCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="CompanyCodeCurrency" sap:label="ImpBaseImpon. DivSoc" sap:quickinfo="Importo base imponibile in divisa società"/>
+                <Property Name="ValuationDiffAmtInCoCodeCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="CompanyCodeCurrency" sap:label="Importo diff. val. in divisa società" sap:quickinfo="Importo differenza di valutazione in divisa società"/>
+                <Property Name="CashDiscountAmtInCoCodeCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="CompanyCodeCurrency" sap:label="Imp.sconto div.soc." sap:quickinfo="Importo di sconto in divisa società"/>
+                <Property Name="InvoiceAmtInCoCodeCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="CompanyCodeCurrency" sap:label="Imp. fatt. div. soc." sap:quickinfo="Importo fattura in divisa società"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:label="Divisa transazione" sap:semantics="currency-code"/>
+                <Property Name="AmountInTransactionCurrency" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Importo in DT" sap:quickinfo="Importo in divisa transazione"/>
+                <Property Name="OriginalTaxBaseAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Imp. base impon. or." sap:quickinfo="Importo base imponibile originale in divisa transazione"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Ammontare imposta" sap:quickinfo="Ammontare imposta in divisa transazione"/>
+                <Property Name="TaxBaseAmountInTransCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="ImpBsImpon DivTrans" sap:quickinfo="Importo base imponibile in divisa transazione"/>
+                <Property Name="WithholdingTaxBaseAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Imp.base rit.d'acc." sap:quickinfo="Importo di base della ritenuta d'acconto"/>
+                <Property Name="PlannedAmtInTransactionCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Imp.pian. div.trans." sap:quickinfo="Importo pianificato in divisa transazione"/>
+                <Property Name="CashDiscountBaseAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Imp. sconto di base" sap:quickinfo="Importo di sconto di base"/>
+                <Property Name="CashDiscountAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Importo di sconto"/>
+                <Property Name="NetPaymentAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Importo pag. netto" sap:quickinfo="Importo di pagamento netto"/>
+                <Property Name="WithholdingTaxAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Importo rit. acconto" sap:quickinfo="Importo di ritenuta d'acconto"/>
+                <Property Name="WithholdingTaxExemptionAmt" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Imp. es. rit. d'acc." sap:quickinfo="Importo esenzione ritenuta d'acconto"/>
+                <Property Name="InvoiceAmountInFrgnCurrency" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="TransactionCurrency" sap:label="Imp. fatt. div. est." sap:quickinfo="Importo fattura in divisa estera"/>
+                <Property Name="BalanceTransactionCurrency" Type="Edm.String" MaxLength="5" sap:label="Div. trans. saldo" sap:quickinfo="Divisa transazione del saldo" sap:semantics="currency-code"/>
+                <Property Name="AmountInBalanceTransacCrcy" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="BalanceTransactionCurrency" sap:label="Imp. div.trans.saldo" sap:quickinfo="Importo in divisa transazione del saldo"/>
+                <Property Name="AdditionalCurrency1" Type="Edm.String" MaxLength="5" sap:label="Divisa suppl. 1" sap:quickinfo="Divisa supplementare 1" sap:semantics="currency-code"/>
+                <Property Name="ValuationDiffAmtInAddlCrcy1" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="AdditionalCurrency1" sap:label="Diff.valut.DivSuppl1" sap:quickinfo="Importo differenza di valutazione in divisa supplementare 1"/>
+                <Property Name="AmountInAdditionalCurrency1" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="AdditionalCurrency1" sap:label="Imp. in div.suppl. 1" sap:quickinfo="Importo in divisa supplementare 1"/>
+                <Property Name="AdditionalCurrency2" Type="Edm.String" MaxLength="5" sap:label="Divisa suppl. 2" sap:quickinfo="Divisa supplementare 2" sap:semantics="currency-code"/>
+                <Property Name="AmountInAdditionalCurrency2" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="AdditionalCurrency2" sap:label="Imp. in div.suppl. 2" sap:quickinfo="Importo in divisa supplementare 2"/>
+                <Property Name="ValuationDiffAmtInAddlCrcy2" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="AdditionalCurrency2" sap:label="Diff.valut.DivSuppl2" sap:quickinfo="Importo differenza di valutazione in divisa supplementare 2"/>
+                <Property Name="PaymentCurrency" Type="Edm.String" MaxLength="5" sap:label="Div. pagamento" sap:quickinfo="Divisa per pagamento automatico" sap:semantics="currency-code"/>
+                <Property Name="AmountInPaymentCurrency" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="PaymentCurrency" sap:label="Imp. divisa pag." sap:quickinfo="Importo in divisa di pagamento"/>
+                <Property Name="CreditControlAreaCurrency" Type="Edm.String" MaxLength="5" sap:label="Divisa area di controllo del credito" sap:semantics="currency-code"/>
+                <Property Name="HedgedAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="CreditControlAreaCurrency" sap:label="Importo garantito" sap:quickinfo="Gestione crediti: importo garantito"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Unità misura base" sap:quickinfo="Unità di misura di base" sap:semantics="unit-of-measure"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Precision="23" Scale="3" sap:unit="BaseUnit" sap:label="Quantità"/>
+                <Property Name="GoodsMovementEntryUnit" Type="Edm.String" MaxLength="3" sap:label="UM acquisizione" sap:quickinfo="Unità di misura di registrazione" sap:semantics="unit-of-measure"/>
+                <Property Name="QuantityInEntryUnit" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="GoodsMovementEntryUnit" sap:label="Qtà unità acquis." sap:quickinfo="Quantità in unità di misura di acquisizione"/>
+                <Property Name="PurchasingDocumentPriceUnit" Type="Edm.String" MaxLength="3" sap:label="UM prz. ord. acq." sap:quickinfo="Unità di misura del prezzo dell'ordine d'acquisto (acquisti)" sap:semantics="unit-of-measure"/>
+                <Property Name="PurchaseOrderQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="PurchasingDocumentPriceUnit" sap:label="Quantità ordine d'acquisto"/>
+                <Property Name="MaterialPriceUnitQty" Type="Edm.Decimal" Precision="5" Scale="0" sap:unit="BaseUnit" sap:label="Unità di prezzo"/>
+                <Property Name="NumberOfItems" Type="Edm.Decimal" Precision="12" Scale="0" sap:label="Numero di posizioni"/>
+                <Property Name="AccountingDocumentCreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data di acquisizione" sap:quickinfo="Data di acquisizione documento contabile"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Ora di creazione"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data ultima modifica" sap:quickinfo="Data dell'ultima modifica"/>
+                <Property Name="ExchangeRateDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data tasso di cambio" sap:quickinfo="Data del tasso di cambio"/>
+                <Property Name="AccountingDocCreatedByUser" Type="Edm.String" MaxLength="12" sap:label="Autore cr. doc.cont." sap:quickinfo="Utente che ha creato il documento contabile"/>
+                <Property Name="TransactionCode" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Codice transazione"/>
+                <Property Name="IntercompanyTransaction" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Trans. intercompany" sap:quickinfo="Numero della transazione intercompany"/>
+                <Property Name="DocumentReferenceID" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="ID di riferimento del documento"/>
+                <Property Name="RecurringAccountingDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento contabile periodico"/>
+                <Property Name="ReverseDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento di storno"/>
+                <Property Name="ReverseDocumentFiscalYear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Esercizio del documento di storno"/>
+                <Property Name="AccountingDocumentHeaderText" Type="Edm.String" MaxLength="25" sap:label="Tst.test.doc." sap:quickinfo="Testo testata documento"/>
+                <Property Name="ExchangeRate" Type="Edm.Decimal" Precision="9" Scale="5" sap:label="Cambio"/>
+                <Property Name="BusinessTransactionType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Tipo oper. contabile" sap:quickinfo="Tipo di operazione contabile"/>
+                <Property Name="BatchInputSession" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Sessione batch-input"/>
+                <Property Name="FinancialManagementArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Area finanziaria"/>
+                <Property Name="ReversalIsPlanned" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Storno pianificato" sap:quickinfo="Indicatore: storno pianificato per il documento"/>
+                <Property Name="PlannedReversalDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data pian. di storno" sap:quickinfo="Data pianificata per registrazione di storno"/>
+                <Property Name="TaxIsCalculatedAutomatically" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Imposta calcolata automaticamente" sap:quickinfo="L'imposta viene calcolata automaticamente"/>
+                <Property Name="TaxBaseAmountIsNetAmount" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Importo base imponibile è importo netto" sap:quickinfo="L'importo base imponibile è un importo netto"/>
+                <Property Name="SourceCompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Società iniziale"/>
+                <Property Name="LogicalSystem" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sistema logico"/>
+                <Property Name="TaxExchangeRate" Type="Edm.Decimal" Precision="9" Scale="5" sap:label="Tasso di cambio dell'imposta"/>
+                <Property Name="ReversalReason" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Causa scr. storno" sap:quickinfo="Causa della scrittura di storno o di giroconto"/>
+                <Property Name="Branch" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Filiale"/>
+                <Property Name="Reference1InDocumentHeader" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Riferimento 1" sap:quickinfo="ID interno della chiave di rif. 1 in testata documento"/>
+                <Property Name="Reference2InDocumentHeader" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Riferimento 2" sap:quickinfo="ID interno della chiave di rif. 2 in testata documento"/>
+                <Property Name="InvoiceReceiptDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data entrata fattura"/>
+                <Property Name="Ledger" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Ledger"/>
+                <Property Name="LedgerGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Gruppo ledger"/>
+                <Property Name="AlternativeReferenceDocument" Type="Edm.String" MaxLength="26" sap:display-format="UpperCase" sap:label="Documento di riferimento alternativo"/>
+                <Property Name="TaxReportingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data dich. IVA" sap:quickinfo="Data di dichiarazione IVA"/>
+                <Property Name="AccountingDocumentClass" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Classe doc. contab." sap:quickinfo="Classe del documento contabile"/>
+                <Property Name="ExchangeRateType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Tipo di cambio"/>
+                <Property Name="LatePaymentReason" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Motivo pagamento tardivo"/>
+                <Property Name="SalesDocumentCondition" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Condizione documento di vendita"/>
+                <Property Name="IsReversal" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Posizione di storno" sap:quickinfo="Indicatore: posizione di storno di un'altra posizione"/>
+                <Property Name="IsReversed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Posizione stornata" sap:quickinfo="Indicatore: posizione stornata"/>
+            </EntityType>
+            <EntityContainer Name="API_OPLACCTGDOCITEMCUBE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="A_OperationalAcctgDocItemCube" EntityType="API_OPLACCTGDOCITEMCUBE_SRV.A_OperationalAcctgDocItemCubeType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="API_OPLACCTGDOCITEMCUBE_SRV.API_OPLACCTGDOCITEMCUBE_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="API_OPLACCTGDOCITEMCUBE_SRV.API_OPLACCTGDOCITEMCUBE_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.BatchSupported" Bool="false"/>
+            </Annotations>
+            <atom:link rel="self" href="http://orogeldev:44333/sap/opu/odata/sap/API_OPLACCTGDOCITEMCUBE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://orogeldev:44333/sap/opu/odata/sap/API_OPLACCTGDOCITEMCUBE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

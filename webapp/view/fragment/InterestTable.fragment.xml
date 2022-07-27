@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table">
+    <Dialog title="{i18n>lbl.InterestRateDialog}" contentHeight="400px" contentWidth="650px">
+        <content>
+        <OverflowToolbar >
+        <ToolbarSpacer/>
+        <Button id="addRow" icon="sap-icon://add" press="onAddInterestRow"/>
+        <Button id="deleteRow" icon="sap-icon://delete" press="onDeleteInterestRow"/>
+        </OverflowToolbar>
+            <t:Table id="interestTable" rows="{interestModel>/}" selectionMode="Multi" visibleRowCountMode="Auto" alternateRowColors="true">
+                <t:columns>
+                    <!--1 Amount -->
+                    <t:Column id="column1Id" sortProperty="Amount" filterProperty="Amount" width="auto">
+                        <Label text="{i18n>lbl.Amount}" tooltip="{i18n>lbl.Amount}"/>
+                        <t:template>
+                            <Input value="{interestModel>Amount}" type="Number"/>
+                        </t:template>
+                    </t:Column>
+                     <!--2 Date From -->
+                    <t:Column sortProperty="DateFrom" filterProperty="DateFrom" width="auto">
+                        <Label text="{i18n>lbl.DateFrom}" tooltip="{i18n>lbl.DateFrom}"/>
+                        <t:template>
+                            <DatePicker value="{interestModel>DateFrom}" displayFormat="dd/MM/yyyy" valueFormat="dd-MM-yyyy"/>
+                        </t:template>
+                    </t:Column>
+                    <!--3 Date To -->
+                    <t:Column sortProperty="DateTo" filterProperty="DateTo" width="auto">
+                        <Label text="{i18n>lbl.DateTo}" tooltip="{i18n>lbl.DateTo}"/>
+                        <t:template>
+                            <DatePicker value="{interestModel>DateTo}" displayFormat="dd/MM/yyyy" valueFormat="dd-MM-yyyy"/>
+                        </t:template>
+                    </t:Column>
+                    <!--4 Interest Rate -->
+                    <t:Column sortProperty="InterestRate" filterProperty="InterestRate" width="auto">
+                        <Label text="{i18n>lbl.InterestRate}" tooltip="{i18n>lbl.InterestRate}"/>
+                        <t:template>
+                            <Input value="{interestModel>InterestRate}" type="Number"/>
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </content>
+        <buttons>
+            <!-- Ok Button -->
+            <Button id="saveButton" type="Emphasized" text="{i18n>lbl.SaveButton}" tooltip="{i18n>lbl.SaveButton}" press="onSaveInterestRateDialog"/>
+            <!-- Close Button -->
+            <Button id="closeButton" type="Emphasized" text="{i18n>lbl.CloseButton}" tooltip="{i18n>lbl.CloseButton}" press="onCloseInterestRateDialog"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
